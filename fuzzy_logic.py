@@ -4,18 +4,18 @@ import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 
-# Girdi değişkenleri
+#Girdilerim
 isik = ctrl.Antecedent(np.arange(0, 101, 1), 'isik')
 sicaklik = ctrl.Antecedent(np.arange(15, 31, 1), 'sicaklik')
 ses = ctrl.Antecedent(np.arange(0, 101, 1), 'ses')
 aktivite = ctrl.Antecedent(np.arange(0, 11, 1), 'aktivite')
 uyku = ctrl.Antecedent(np.arange(0, 181, 1), 'uyku')
 
-# Çıktılar
+# Çıktılarım
 uyuma = ctrl.Consequent(np.arange(0, 101, 1), 'uyuma')
 destek = ctrl.Consequent(np.arange(0, 4, 1), 'destek')
 
-# Üyelik fonksiyonları
+# Üyelik fonksiyonlarım
 isik['dusuk'] = fuzz.trimf(isik.universe, [0, 0, 50])
 isik['orta'] = fuzz.trimf(isik.universe, [30, 50, 70])
 isik['yuksek'] = fuzz.trimf(isik.universe, [50, 100, 100])
@@ -43,7 +43,6 @@ destek['ninni'] = fuzz.trimf(destek.universe, [0, 1, 2])
 destek['ortam'] = fuzz.trimf(destek.universe, [1, 2, 3])
 destek['yok'] = fuzz.trimf(destek.universe, [2, 3, 3])
 
-# Kurallar
 rules = [
     ctrl.Rule(isik['dusuk'] & ses['dusuk'] & sicaklik['ideal'] & aktivite['cok'] & uyku['eski'], (uyuma['yuksek'], destek['ninni'])),
     ctrl.Rule(isik['yuksek'] | ses['yuksek'], (uyuma['dusuk'], destek['sessizlik'])),
