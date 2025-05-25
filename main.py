@@ -5,25 +5,25 @@ from fuzzy_logic import hesapla
 
 def hesapla_sonuc():
     try:
-        # Kutular boş mu kontrolü
+        # Kutular boş mu dolu mu kontrol ediyorum
         if not all([entry.get().strip() for entry in girisler]):
             raise ValueError("Boş alan bırakmayın.")
 
-        # Girişleri al
+        # Girdileri istedim
         isik = int(entry_isik.get())
         sicaklik = int(entry_sicaklik.get())
         ses = int(entry_ses.get())
         aktivite = int(entry_aktivite.get())
         uyku_suresi = int(entry_uyku.get())
 
-        # Mantıklı aralıkta mı kontrol
+        # Doğru aralıklarda olup olmadığını kontrol ettim
         if not (0 <= isik <= 100 and 15 <= sicaklik <= 30 and 0 <= ses <= 100 and 0 <= aktivite <= 10 and uyku_suresi >= 0):
             raise ValueError("Değer aralıklarını kontrol edin.")
 
-        # Hesaplama
+    
         uyuma, destek = hesapla(isik, sicaklik, ses, aktivite, uyku_suresi)
 
-        # Destek açıklaması
+        
         destek_map = {
             0: "Sessizlik",
             1: "Ninni",
@@ -39,7 +39,7 @@ def hesapla_sonuc():
         print("Hata:", e)  # CMD ekranında detay görmek için
         messagebox.showerror("Hata", "Beklenmeyen bir hata oluştu.")
 
-# Arayüz
+
 pencere = tk.Tk()
 pencere.title("Bebek Uyku Yardımcısı")
 pencere.geometry("300x250")
