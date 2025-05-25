@@ -55,10 +55,10 @@ Bu proje, üniversite dersi kapsamında yapılmış olup, bulanık mantık uygul
 ```
 bebek_uyku_yardimcisi/
 │
-├── main.py               # Arayüz ve kullanıcı girişi
-├── fuzzy_logic.py        # Bulanık mantık sistemi
-├── requirements.txt      # Gerekli kütüphaneler
-└── README.md             # Proje açıklamaları
+├── main.py               
+├── fuzzy_logic.py        
+├── requirements.txt      
+└── README.md             
 ```
 
 ---
